@@ -76,10 +76,12 @@ class SiteTreeLinkTracking extends DataExtension {
 		// Update the "LinkTracking" many_many
 		if($record->ID && $record->many_many('LinkTracking') && $tracker = $record->LinkTracking()) {
 			$tracker->removeByFilter(sprintf(
-				'"FieldName" = \'%s\' AND "%s" = %d',
-				$field,
-				$tracker->getForeignKey(),
-				$record->ID
+                '"%s"."FieldName" = \'%s\' AND "%s"."%s" = %d',
+                $tracker->getJoinTable(),
+                $field,
+                $tracker->getJoinTable(),
+                $tracker->getForeignKey(),
+                $record->ID
 			));
 
 			if($linkedPages) foreach($linkedPages as $item) {
@@ -90,10 +92,12 @@ class SiteTreeLinkTracking extends DataExtension {
 		// Update the "ImageTracking" many_many
 		if($record->ID && $record->many_many('ImageTracking') && $tracker = $record->ImageTracking()) {
 			$tracker->removeByFilter(sprintf(
-				'"FieldName" = \'%s\' AND "%s" = %d',
-				$field,
-				$tracker->getForeignKey(),
-				$record->ID
+                    '"%s"."FieldName" = \'%s\' AND "%s"."%s" = %d',
+                    $tracker->getJoinTable(),
+                    $field,
+                    $tracker->getJoinTable(),
+                    $tracker->getForeignKey(),
+                    $record->ID
 			));
 
 			if($linkedFiles) foreach($linkedFiles as $item) {
