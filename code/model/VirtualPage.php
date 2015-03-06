@@ -198,7 +198,7 @@ class VirtualPage extends Page {
 				'VirtualPage.HEADERWITHLINK', 
 				"This is a virtual page copying content from \"{title}\" ({link})",
 				array(
-					'title' => $this->CopyContentFrom()->Title,
+					'title' => $this->CopyContentFrom()->obj('Title'),
 					'link' => $link
 				)
 			);
@@ -450,6 +450,22 @@ class VirtualPage extends Page {
 		if(parent::hasMethod($method)) return true;
 		return $this->copyContentFrom()->hasMethod($method);
 	}
+
+	/**
+	 * Return the "casting helper" (a piece of PHP code that when evaluated creates a casted value object) for a field
+	 * on this object.
+	 *
+	 * @param string $field
+	 * @return string
+	 */
+	public function castingHelper($field) {
+		if($this->copyContentFrom()) {
+			return $this->copyContentFrom()->castingHelper($field);
+		} else {
+			return parent::castingHelper($field);
+		}
+	}
+
 }
 
 /**
