@@ -19,12 +19,12 @@ id:
     FROMYOURCOMPUTER: 'Dari komputer Anda'
     Filetype: 'Jenis berkas'
     ListView: 'Tampilan Daftar'
+    MENUTITLE: Berkas
     NEWFOLDER: FolderBaru
     SIZE: Ukuran
     THUMBSDELETED: '{count} thumbnail tak terpakai telah dihapus'
     TreeView: 'Tampilan Struktur'
     Upload: Unggah
-    MENUTITLE: Berkas
   AssetAdmin_DeleteBatchAction:
     TITLE: 'Hapus Folder'
   AssetAdmin_Tools:
@@ -61,14 +61,18 @@ id:
   CMSAddPageController:
     Title: 'Tambah laman'
   CMSBatchActions:
+    ARCHIVE: Arsip
+    ARCHIVED_PAGES: 'Arsip %d halaman'
     DELETED_DRAFT_PAGES: '%d laman berhasil dihapus dari draft, %d laman gagal dihapus'
     DELETED_PAGES: '%d laman berhasil dihapus dari situs terbit, %d gagal'
     DELETE_DRAFT_PAGES: 'Hapus dari draf situs'
     DELETE_PAGES: 'Hapus dari situs terbit'
     PUBLISHED_PAGES: 'Menerbitkan %d laman, %d gagal'
     PUBLISH_PAGES: Terbitkan
-    UNPUBLISHED_PAGES: '%d laman dibatalterbitkan'
-    UNPUBLISH_PAGES: Batalterbitkan
+    RESTORE: Pulihkan
+    RESTORED_PAGES: 'Pulihkan %d halaman'
+  CMSFileAddController:
+    MENUTITLE: Berkas
   CMSMain:
     ACCESS: 'Akses ke bagian ''{title}'''
     ACCESS_HELP: 'Perbolehkan menampilkan bagian dengan struktur laman dan konten. Perijinan menampilkan dan mengedit dapat diatur melalui pilihan terkait laman, sebagaimana "Perijinan Konten".'
@@ -86,12 +90,10 @@ id:
     DUPLICATEDWITHCHILDREN: '''{title}'' dan turunannya berhasil diduplikasi'
     EMAIL: Surel
     EditTree: 'Edit Struktur'
-    ListFiltered: 'Daftar tersaring'
+    MENUTITLE: 'Edit Laman'
     NEWPAGE: '{pagetype} baru'
     PAGENOTEXISTS: 'Laman ini tidak ada'
-    PAGES: Laman
     PAGETYPEANYOPT: Lain
-    PAGETYPEOPT: 'Jenis Laman'
     PUBALLCONFIRM: 'Mohon terbitkan semua laman pada situs'
     PUBALLFUN: 'Fungsi "Terbitkan Semua"'
     PUBALLFUN2: "Menekan tombol ini sama dengan membuka semua laman dan menerbitkannya. Hal ini \n\t\t\t\tditujukan untuk dilakukan setelah ada banyak pengeditan konten, misalnya saat situs pertama kali \n\t\t\t\tdiinstal."
@@ -100,8 +102,10 @@ id:
     REMOVED: 'Dihapus ''{title}''{description} dari situs langsung'
     REMOVEDPAGE: 'Menghapus ''{title}'' dari situs terbit'
     REMOVEDPAGEFROMDRAFT: 'Menghapus ''%s'' dari draf situs'
-    RESTORE: Pulihkan
     RESTORED: 'Pemulihan ''{title}'' sukses'
+    RESTORE_DESC: 'Pulihkan versi arsip ke draf'
+    RESTORE_TO_ROOT: 'Pulihkan draf pada level teratas'
+    RESTORE_TO_ROOT_DESC: 'Pulihkan versi arsip ke draf sebagai halaman level teratas'
     ROLLBACK: 'Kembali ke versi ini'
     ROLLEDBACKPUBv2: 'Kembali ke versi terbit'
     ROLLEDBACKVERSIONv2: 'Kembali ke versi #%d.'
@@ -110,51 +114,46 @@ id:
     TabContent: Konten
     TabHistory: Sejarah
     TabSettings: Pengaturan
-    TreeFiltered: 'Struktur tersaring.'
-    TreeFilteredClear: 'Bersihkan saring'
-    MENUTITLE: 'Edit Laman'
   CMSMain_left_ss:
-    APPLY_FILTER: 'Terapkan Saring'
     RESET: Reset
   CMSPageAddController:
+    MENUTITLE: 'Tambah laman'
     ParentMode_child: 'Di bawah laman lain'
     ParentMode_top: 'Laman atas'
-    MENUTITLE: 'Tambah laman'
+  CMSPageEditController:
+    MENUTITLE: 'Edit Laman'
   CMSPageHistoryController:
     COMPAREMODE: 'Modus pembanding (pilih dua)'
     COMPAREVERSIONS: 'Bandingkan Versi'
     COMPARINGVERSION: 'Bandingkan versi {version1} dan {version2}.'
+    MENUTITLE: Sejarah
     REVERTTOTHISVERSION: 'Kembali ke versi ini'
     SHOWUNPUBLISHED: 'Tampilkan versi batalterbit'
     SHOWVERSION: 'Tampilkan Versi'
     VIEW: tampilkan
     VIEWINGLATEST: 'Versi terakhir sedang ditampilkan.'
     VIEWINGVERSION: 'Versi {version} sedang ditampilkan.'
-    MENUTITLE: Sejarah
   CMSPageHistoryController_versions_ss:
     AUTHOR: Penulis
     NOTPUBLISHED: 'Batal terbit'
     PUBLISHER: Penerbit
     UNKNOWN: Tidak diketahui
     WHEN: Ketika
+  CMSPageSettingsController:
+    MENUTITLE: 'Edit Laman'
   CMSPagesController:
     GalleryView: 'Tampilan Galeri'
     ListView: 'Tampilan daftar'
     MENUTITLE: Laman
     TreeView: 'Tampilan Struktur'
-  CMSPagesController_ContentToolbar_ss:
-    MULTISELECT: Multi-pilihan
   CMSPagesController_Tools_ss:
     FILTER: Saring
   CMSSearch:
     FILTERDATEFROM: Dari
     FILTERDATEHEADING: Tanggal
     FILTERDATETO: Ke
-    FILTERLABELTEXT: Konten
-  CMSSiteTreeFilter_ChangedPages:
-    Title: 'Laman yang berubah'
-  CMSSiteTreeFilter_DeletedPages:
-    Title: 'Semua laman, termasuk yang terhapus'
+  CMSSettingsController:
+    MENUTITLE: Pengaturan
   CMSSiteTreeFilter_Search:
     Title: 'Semua laman'
   ContentControl:
@@ -215,7 +214,6 @@ id:
     DEFAULTSERVERERRORPAGETITLE: 'Server mengalami kesalahan'
     DESCRIPTION: 'Laman untuk berbagai kasus kesalahan (misalnya "Laman tidak ditemukan")'
     ERRORFILEPROBLEM: 'Gagal membuka berkas "{filename}" untuk penulisan data. Mohon periksa pengaturan akses tulis.'
-    PLURALNAME: 'Laman Kesalahan'
     SINGULARNAME: 'Laman Kesalahan'
   Folder:
     AddFolderButton: 'Tambah map'
@@ -238,15 +236,14 @@ id:
     HASBEENSETUP: 'Sebuah laman pengarah telah dibuat tanpa arah yang dituju.'
     HEADER: 'Laman ini akan mengarahkan pengguna ke laman lain'
     OTHERURL: 'URL situs web lain'
-    PLURALNAME: 'Laman Pengarah'
     REDIRECTTO: 'Arahkan lagi ke'
     REDIRECTTOEXTERNAL: 'Situs web yang lain'
     REDIRECTTOPAGE: 'Laman pada situs Anda'
     SINGULARNAME: 'Laman Pengarah'
     YOURPAGE: 'Laman pada situs Anda'
   ReportAdmin:
-    ReportTitle: Judul
     MENUTITLE: Laporan
+    ReportTitle: Judul
   ReportAdminForm:
     FILTERBY: 'Saring dengan'
   SITETREE:
@@ -272,7 +269,6 @@ id:
   SilverStripeNavigator:
     ARCHIVED: Terarsip
   SilverStripeNavigatorLink:
-    ShareInstructions: 'Untuk membagi laman ini, salin dan tempel pada tautan berikut.'
     ShareLink: 'Bagi tautan'
   SilverStripeNavigatorLinkl:
     CloseLink: Tutup
@@ -310,11 +306,8 @@ id:
     BUTTONUNPUBLISHDESC: 'Hapus laman ini dari situs terbit'
     Comments: Komen-komen
     Content: Konten
-    DEFAULTABOUTCONTENT: '<p>Anda dapat mengisi laman ini dengan konten Anda sendiri, atau menghapusnya dan membuat laman Anda sendiri.<br /></p>'
     DEFAULTABOUTTITLE: 'Tentang Kami'
-    DEFAULTCONTACTCONTENT: '<p>Anda dapat mengisi laman ini dengan konten Anda sendiri, atau menghapusnya dan membuat laman Anda sendiri.<br /></p>'
     DEFAULTCONTACTTITLE: 'Hubungi Kami'
-    DEFAULTHOMECONTENT: '<p>Selamat datang di SilverStripe! Ini adalah halaman awal situs Anda. Anda dapat mengedit laman ini dengan membuka <a href="admin/">CMS ini</a>. Selanjutnya Anda dapat mengakses <a href="http://doc.silverstripe.com">dokumentasi pengembang</a>, atau mulai dengan <a href="http://doc.silverstripe.com/doku.php?id=tutorials">tutorial-tutorial yang tersedia.</a></p>'
     DEFAULTHOMETITLE: Beranda
     DELETEDPAGEHELP: 'Laman tidak lagi terbit'
     DELETEDPAGESHORT: Hapus
@@ -401,14 +394,5 @@ id:
     EditLink: edit
     HEADER: 'Ini adalah laman virtual'
     HEADERWITHLINK: 'Ini adalah laman virtual dengan konten salinan dari "{title}" ({link})'
-    PLURALNAME: 'Laman Virtual'
     PageTypNotAllowedOnRoot: 'Laman asli jenis "{type}" tidak dibolehkan pada tingkat atas untuk laman virtual ini'
     SINGULARNAME: 'Laman Virtual'
-  CMSFileAddController:
-    MENUTITLE: Berkas
-  CMSPageEditController:
-    MENUTITLE: 'Edit Laman'
-  CMSPageSettingsController:
-    MENUTITLE: 'Edit Laman'
-  CMSSettingsController:
-    MENUTITLE: Pengaturan

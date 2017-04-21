@@ -29,9 +29,8 @@ class BrokenLinksReport extends SS_Report {
 				$sort = '';
 			}
 		}
-		if (!isset($_REQUEST['CheckSite']) || $params['CheckSite'] == 'Published') $ret = Versioned::get_by_stage('SiteTree', 'Live', '("SiteTree"."HasBrokenLink" = 1 OR "SiteTree"."HasBrokenFile" = 1)', $sort, $join, $limit);
-		else $ret = DataObject::get('SiteTree', '("SiteTree"."HasBrokenFile" = 1 OR "HasBrokenLink" = 1)', $sort, $join, $limit);
-		
+		$ret = Versioned::get_by_stage('SiteTree', ((!isset($params['CheckSite']) || ($params['CheckSite'] == 'Published')) ? 'Live' : 'Stage'), '("SiteTree"."HasBrokenLink" = 1 OR "SiteTree"."HasBrokenFile" = 1)', $sort, $join, $limit);
+
 		$returnSet = new ArrayList();
 		if ($ret) foreach($ret as $record) {
 			$reason = false;
@@ -73,7 +72,7 @@ class BrokenLinksReport extends SS_Report {
 		return $returnSet;
 	}
 	public function columns() {
-		if(isset($_REQUEST['CheckSite']) && $_REQUEST['CheckSite'] == 'Draft') {
+		if(isset($_REQUEST['filters']['CheckSite']) && $_REQUEST['filters']['CheckSite'] == 'Draft') {
 			$dateTitle = _t('BrokenLinksReport.ColumnDateLastModified', 'Date last modified');
 		} else {
 			$dateTitle = _t('BrokenLinksReport.ColumnDateLastPublished', 'Date last published');
@@ -84,7 +83,7 @@ class BrokenLinksReport extends SS_Report {
 			"Title" => array(
 				"title" => _t('BrokenLinksReport.PageName', 'Page name'),
 				'formatting' => function($value, $item) use ($linkBase) {
-					return sprintf('<a href=\"%s\" title=\"%s\">%s</a>',
+					return sprintf('<a href="%s" title="%s">%s</a>',
 						Controller::join_links($linkBase, $item->ID),
 						_t('BrokenLinksReport.HoverTitleEditPage', 'Edit page'),
 						$value
@@ -105,7 +104,7 @@ class BrokenLinksReport extends SS_Report {
 					$stageLink = $item->AbsoluteLink();
 					return sprintf('%s <a href="%s">%s</a>',
 						$stageLink,
-						$liveLink ? $liveLink : $stageLink . '?stage=Stage',
+						$liveLink ? $liveLink : Controller::join_links($stageLink, '?stage=Stage'),
 						$liveLink ? '(live)' : '(draft)'
 					);
 				}

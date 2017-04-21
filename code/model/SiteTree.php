@@ -1442,7 +1442,7 @@ class SiteTree extends DataObject implements PermissionProvider,i18nEntityProvid
 			if(!SiteTree::get_by_link(Config::inst()->get('RootURLController', 'default_homepage_link'))) {
 				$homepage = new Page();
 				$homepage->Title = _t('SiteTree.DEFAULTHOMETITLE', 'Home');
-				$homepage->Content = _t('SiteTree.DEFAULTHOMECONTENT', '<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p>');
+				$homepage->Content = _t('SiteTree.DEFAULTHOMECONTENT', '<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>.</p><p>You can now access the <a href="http://docs.silverstripe.org">developer documentation</a>, or begin the <a href="http://www.silverstripe.org/learn/lessons">SilverStripe lessons</a>.</p>');
 				$homepage->URLSegment = Config::inst()->get('RootURLController', 'default_homepage_link');
 				$homepage->Sort = 1;
 				$homepage->write();
@@ -1591,7 +1591,7 @@ class SiteTree extends DataObject implements PermissionProvider,i18nEntityProvid
 			// No need to check for subclasses or instanceof, as allowedChildren() already 
 			// deconstructs any inheritance trees already.
 			$allowed = $parent->allowedChildren();
-			$subject = ($this instanceof VirtualPage) ? $this->CopyContentFrom() : $this;
+			$subject = ($this instanceof VirtualPage && $this->CopyContentFromID) ? $this->CopyContentFrom() : $this;
 			if(!in_array($subject->ClassName, $allowed)) {
 				
 				$result->error(

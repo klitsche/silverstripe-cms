@@ -644,7 +644,7 @@ class CMSMain extends LeftAndMain implements CurrentPageIdentifier, PermissionPr
 			// if($form->Fields()->hasTabset()) $form->Fields()->findOrMakeTab('Root')->setTemplate('CMSTabSet');
 			$form->setAttribute('data-pjax-fragment', 'CurrentForm');
 			// Set validation exemptions for specific actions
-			$form->setValidationExemptActions(array('restore', 'revert', 'deletefromlive', 'rollback'));
+			$form->setValidationExemptActions(array('restore', 'revert', 'deletefromlive', 'rollback', 'doRollback'));
 
 			// Announce the capability so the frontend can decide whether to allow preview or not.
 			if(in_array('CMSPreviewable', class_implements($record))) {
@@ -1316,7 +1316,9 @@ class CMSMain extends LeftAndMain implements CurrentPageIdentifier, PermissionPr
 		
 		if(($id = $this->urlParams['ID']) && is_numeric($id)) {
 			$page = DataObject::get_by_id("SiteTree", $id);
-			if($page && (!$page->canEdit() || !$page->canCreate())) return Security::permissionFailure($this);
+			if($page && (!$page->canEdit() || !$page->canCreate(null, array('Parent' => $page->Parent())))) {
+				return Security::permissionFailure($this);
+			}
 			if(!$page || !$page->ID) throw new SS_HTTPResponse_Exception("Bad record ID #$id", 404);
 
 			$newPage = $page->duplicate();
@@ -1352,7 +1354,9 @@ class CMSMain extends LeftAndMain implements CurrentPageIdentifier, PermissionPr
 		increase_time_limit_to();
 		if(($id = $this->urlParams['ID']) && is_numeric($id)) {
 			$page = DataObject::get_by_id("SiteTree", $id);
-			if($page && (!$page->canEdit() || !$page->canCreate())) return Security::permissionFailure($this);
+			if($page && (!$page->canEdit() || !$page->canCreate(null, array('Parent' => $page->Parent())))) {
+				return Security::permissionFailure($this);
+			}
 			if(!$page || !$page->ID) throw new SS_HTTPResponse_Exception("Bad record ID #$id", 404);
 
 			$newPage = $page->duplicateWithChildren();

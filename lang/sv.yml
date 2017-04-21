@@ -19,12 +19,12 @@ sv:
     FROMYOURCOMPUTER: 'Från din dator'
     Filetype: 'Filtyp'
     ListView: 'Listvy'
+    MENUTITLE: Filer
     NEWFOLDER: Ny mapp
     SIZE: Storlek
     THUMBSDELETED: '{count} oanvända tumnaglar har raderats'
     TreeView: 'Trädvy'
     Upload: Ladda upp
-    MENUTITLE: Filer
   AssetAdmin_DeleteBatchAction:
     TITLE: 'Radera mapparna'
   AssetAdmin_Tools:
@@ -61,17 +61,23 @@ sv:
   CMSAddPageController:
     Title: 'Skapa sida'
   CMSBatchActions:
+    ARCHIVE: Arkivera
+    ARCHIVED_PAGES: 'Arkiverade %d sidor'
     DELETED_DRAFT_PAGES: 'Raderade %d sidor från utkastsajten, %d misslyckades'
     DELETED_PAGES: 'Raderade %d sidor från den publiserade sajten, %d misslyckades'
     DELETE_DRAFT_PAGES: 'Radera från utkast'
     DELETE_PAGES: 'Radera från publicerade sajten'
     PUBLISHED_PAGES: 'Publicerade %d sidor, %d misslyckades'
     PUBLISH_PAGES: Publicera
-    UNPUBLISHED_PAGES: 'Avpublicerade %d sidor'
-    UNPUBLISH_PAGES: Avpublicera
+    RESTORE: Återskapa
+    RESTORED_PAGES: 'Återskapade %d sidor'
+  CMSFileAddController:
+    MENUTITLE: Filer
   CMSMain:
     ACCESS: 'Tillgång till sektionen ''{title}'''
     ACCESS_HELP: 'Tillåt visning av sektionen innehållande sidträdet och dess innehåll. Rättigheter att visa och redigera sidan kan hanteras i dess rullgardinsmenyer, liksom i "Innehållsbehörigheter".'
+    ARCHIVE: Arkiv
+    ARCHIVEDPAGE: 'Arkiverade sidor ''%s'''
     AddNew: 'Skapa ny sida'
     AddNewButton: 'Skapa ny'
     AddPageRestriction: 'OBS: Vissa sidtyper är inte tillåtna här'
@@ -86,12 +92,10 @@ sv:
     DUPLICATEDWITHCHILDREN: 'Duplicerade ''{title}'' och undersidor utan problem'
     EMAIL: E-post
     EditTree: 'Redigera trädet'
-    ListFiltered: 'Filtrerad lista'
+    MENUTITLE: 'Redigera sida'
     NEWPAGE: 'Ny {pagetype}'
     PAGENOTEXISTS: 'Den här sidan finns inte'
-    PAGES: Sidor
     PAGETYPEANYOPT: Vilken som helst
-    PAGETYPEOPT: 'Sidtyp'
     PUBALLCONFIRM: 'Publicera alla sidor på sajten och kopiera dem till "live"'
     PUBALLFUN: '"Publicera alla"-funktion'
     PUBALLFUN2: "Ett klick på den här knappen är samma sak som att gå till varje sida och klicka på \"Publicera\". Tanken är att den ska användas efter stora uppdateringar av innehållet på sidan, som när den skapas."
@@ -100,8 +104,10 @@ sv:
     REMOVED: 'Tog bort ''{title}''{description} från den publicerade sajten'
     REMOVEDPAGE: 'Tog bort ''{title}'' från den publicerade sajten'
     REMOVEDPAGEFROMDRAFT: 'Raderade ''%s'' från utkast'
-    RESTORE: Återskapa
     RESTORED: 'Återskapandet av  ''{title}'' lyckades'
+    RESTORE_DESC: 'Återställ den arkiverade versionen av sidan som ett utkast'
+    RESTORE_TO_ROOT: 'Återskapa utkast på top nivå'
+    RESTORE_TO_ROOT_DESC: 'Återställ den arkiverade versionen till ett utkast som en top menu sida'
     ROLLBACK: 'Återställ den här versionen'
     ROLLEDBACKPUBv2: 'Återställde till den publicerade versionen.'
     ROLLEDBACKVERSIONv2: 'Återställde till version #%d.'
@@ -110,53 +116,52 @@ sv:
     TabContent: Innehåll
     TabHistory: Historia
     TabSettings: Inställningar
-    TreeFiltered: 'Filtrerat träd'
-    TreeFilteredClear: 'Rensa lista'
-    MENUTITLE: 'Redigera sida'
   CMSMain_left_ss:
-    APPLY_FILTER: 'Filtrera'
     RESET: Rensa
   CMSPageAddController:
+    MENUTITLE: 'Skapa sida'
     ParentMode_child: 'Under en annan sida'
     ParentMode_top: 'Toppnivå'
-    MENUTITLE: 'Skapa sida'
+  CMSPageEditController:
+    MENUTITLE: 'Redigera sidan'
   CMSPageHistoryController:
     COMPAREMODE: 'Jämföringsläge (välj två)'
     COMPAREVERSIONS: 'Jämför versioner'
     COMPARINGVERSION: 'Jämför version {version1} och {version2}.'
+    MENUTITLE: Historia
     REVERTTOTHISVERSION: 'Ändra till denna version'
     SHOWUNPUBLISHED: 'Visa opublicerade versioner'
     SHOWVERSION: 'Visa version'
     VIEW: Titta på
     VIEWINGLATEST: 'Nu visas den senaste versionen.'
     VIEWINGVERSION: 'Nu visas version {version}.'
-    MENUTITLE: Historia
   CMSPageHistoryController_versions_ss:
     AUTHOR: Författare
     NOTPUBLISHED: 'Ej publicerad'
     PUBLISHER: Utgivare
     UNKNOWN: Okänd
     WHEN: När
+  CMSPageSettingsController:
+    MENUTITLE: 'Redigera sida'
   CMSPagesController:
     GalleryView: 'Gallerivy'
     ListView: 'Listvy'
     MENUTITLE: Sidor
     TreeView: 'Trädvy'
-  CMSPagesController_ContentToolbar_ss:
-    MULTISELECT: Flerval
   CMSPagesController_Tools_ss:
     FILTER: Filter
+  CMSSIteTreeFilter_PublishedPages:
+    Title: 'Publicerade sidor'
   CMSSearch:
     FILTERDATEFROM: Från
     FILTERDATEHEADING: Datum
     FILTERDATETO: Till
-    FILTERLABELTEXT: Innehåll
-  CMSSiteTreeFilter_ChangedPages:
-    Title: 'Ändrade sidor'
-  CMSSiteTreeFilter_DeletedPages:
-    Title: 'Alla sidor, inklusive raderade'
+  CMSSettingsController:
+    MENUTITLE: Inställningar
   CMSSiteTreeFilter_Search:
     Title: 'Alla sidor'
+  CMSSiteTreeFilter_StatusRemovedFromDraftPages:
+    Title: 'Live men borttagen från utkast'
   ContentControl:
     NOTEWONTBESHOWN: 'Observera: Detta meddelande kommer inte att visas för besökarna'
   ContentController:
@@ -215,7 +220,6 @@ sv:
     DEFAULTSERVERERRORPAGETITLE: 'Serverfel'
     DESCRIPTION: 'Anpassat innehåll för olika felärenden (t.ex. "Sidan kan inte hittas")'
     ERRORFILEPROBLEM: 'Kunde inte skriva filen "{filename}". Var vänlig kontrollera skrivrättigheterna.'
-    PLURALNAME: 'Felsidor'
     SINGULARNAME: 'Felsida'
   Folder:
     AddFolderButton: 'Skapa mapp'
@@ -238,15 +242,14 @@ sv:
     HASBEENSETUP: 'En omdirigeringssida har skapats utan att ha något mål.'
     HEADER: 'Den här sidan omdirigerar användare till en annan sida'
     OTHERURL: 'Andra sidans URL'
-    PLURALNAME: 'Omdirigeringssida'
     REDIRECTTO: 'Omdirigera till'
     REDIRECTTOEXTERNAL: 'En annan sajt'
     REDIRECTTOPAGE: 'En sida på din sajt'
     SINGULARNAME: 'Omdirigeringssida'
     YOURPAGE: 'Sida på din sajt'
   ReportAdmin:
-    ReportTitle: Titel
     MENUTITLE: Rapporter
+    ReportTitle: Titel
   ReportAdminForm:
     FILTERBY: 'Filtrera på'
   SITETREE:
@@ -272,7 +275,6 @@ sv:
   SilverStripeNavigator:
     ARCHIVED: Arkiverad
   SilverStripeNavigatorLink:
-    ShareInstructions: 'Kopiera och klistra in länken nedan för att dela den här sidan.'
     ShareLink: 'Dela länk'
   SilverStripeNavigatorLinkl:
     CloseLink: Stäng
@@ -301,6 +303,9 @@ sv:
     ADDEDTODRAFTSHORT: Utkast
     ALLOWCOMMENTS: 'Tillåt kommentar på den här sidan?'
     APPEARSVIRTUALPAGES: 'Detta innehåll förekommer även på en virtuell sida i sektionen {title}.'
+    ARCHIVEDPAGEHELP: 'Sidan är borttagen från utkast och från live'
+    ARCHIVEDPAGESHORT: Arkiverad
+    BUTTONARCHIVEDESC: 'Avpublicerad och skickat till arkiv'
     BUTTONCANCELDRAFT: 'Ångra utkaständringar'
     BUTTONCANCELDRAFTDESC: 'Radera utkast och återgå till den publicerade sidan'
     BUTTONPUBLISHED: Publicerad
@@ -310,11 +315,9 @@ sv:
     BUTTONUNPUBLISHDESC: 'Ta bort den här sidan från den publicerade sajten'
     Comments: Kommentarer
     Content: Innehåll
-    DEFAULTABOUTCONTENT: '<p>Du kan fylla den här sidan med ditt eget innehåll, eller radera den och skapa dina egna sidor.<br/></p>'
     DEFAULTABOUTTITLE: 'Om oss'
-    DEFAULTCONTACTCONTENT: '<p>Du kan fylla den här sidan med ditt eget innehåll, eller radera den och skapa dina egna sidor.<br/></p>'
     DEFAULTCONTACTTITLE: 'Kontakta oss'
-    DEFAULTHOMECONTENT: '<p>Välkommen till SilverStripe! Det här är standardhemsidan. Du kan redigera sidan genom att öppna <a href="admin/">CMS:et</a>. Du kan även komma åt <a href="http://doc.silverstripe.com">utvecklardokumentationen</a>, eller börja med <a href="http://doc.silverstripe.com/doku.php?id=tutorials">guiderna</a></p>'
+    DEFAULTHOMECONTENT: '<p>Välkommen till SilverStripe!  Detta är hemsidan din startsida. Du kan ändra denna sida genom att gå till <a href="admin/">administrationsdelen</a>.</p><p> Du har tillgång till You can now access the <a href="http://docs.silverstripe.org">utvecklar dokumentationen</a>, eller börja med att titta på <a href="http://www.silverstripe.org/learn/lessons">SilverStripelektionerna</a>.</p>'
     DEFAULTHOMETITLE: Hem
     DELETEDPAGEHELP: 'Sidan är inte längre publicerad'
     DELETEDPAGESHORT: Raderad
@@ -385,6 +388,9 @@ sv:
     many_many_BackLinkTracking: 'Spåra inlänkar'
     many_many_ImageTracking: 'Spåra bild'
     many_many_LinkTracking: 'Spåra länk'
+  SiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Denna lista viasar alla sidor där filen har blivit tillagd/uppladdad via WYSIWIG editorn'
+    EDIT: ändra
   SiteTreeURLSegmentField:
     EMPTY: 'Ange ett URL-segment eller klicka på avbryt'
     HelpChars: 'Specialtecken konverteras eller tas bort'
@@ -401,20 +407,5 @@ sv:
     EditLink: redigera
     HEADER: 'Det här är en virutell sida'
     HEADERWITHLINK: 'Det här är en virtuell sida som kopierar innehållet från "{title}" ({link})'
-    PLURALNAME: 'Virtuella sidor'
     PageTypNotAllowedOnRoot: 'Ursprungliga sidan av typ "{type}" tillåts inte på rotnivå för denna virtuella sida'
     SINGULARNAME: 'Virtuell sida'
-  CMSFileAddController:
-    MENUTITLE: Filer
-  CMSPageEditController:
-    MENUTITLE: 'Redigera sidan'
-  CMSPageSettingsController:
-    MENUTITLE: 'Redigera sida'
-  CMSSettingsController:
-    MENUTITLE: Inställningar
-  CMSSiteTreeFilter_StatusDeletedPages:
-    Title: 'Raderade sidor'
-  CMSSiteTreeFilter_StatusDraftPages:
-    Title: 'Ej publicerade utkast'
-  CMSSiteTreeFilter_StatusRemovedFromDraftPages:
-    Title: 'Live men borttagen från utkast'
